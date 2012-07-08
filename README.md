@@ -43,6 +43,26 @@ IRb:
 Note: Using InteractiveTurtle makes drawing slower as it ensures all graphics
 are drawn after every action (as necessary for IRb use).
 
+## Commands
+
+Only a small number of commands are currently implemented, but they're enough for the major actions:
+
+* `forward(distance)` - aliased as `fd`
+* `back(distance)` - aliased as `bk` and `backward`
+* `left(angle)` - aliased as `lt`
+* `right(angle)` - aliased as `rt`
+* `pen_up` - aliased as `pu` and `up` and `penup`
+* `pen_down` - aliased as `pd` and `down` and `pendown`
+* `color(color_name)` - aliased as `pencolor`
+* `move(x, y)` - aliased as `goto`
+* `position` - aliased as `pos`
+* `circle(radius, extent = 360, steps = 360)`
+* `dot(size)` - draws a dot, defaults to a sensible size but you can supply if you want
+* `is_drawing?`
+* `width(width_in_pixels)`
+
+More documentation to come later.
+
 ## Examples
 
 The examples in the `examples` folder should be reasonably illustrative. If you
