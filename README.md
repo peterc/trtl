@@ -72,7 +72,7 @@ try any of them, try `example4.rb` - it renders an awesome looking tree.
 
 ## Credits
 
-* turtle.py for inspiration
+* turtle.py for inspiration (in the 'Ruby needs this!' sense)
 * Some of the examples taken from examples for an earlier Ruby turtle found at http://www.rubyquiz.com/quiz104.html
 
 ## Copyright and License
