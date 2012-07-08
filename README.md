@@ -1,4 +1,4 @@
-# Trtl - A Tk-powered Ruby Turtle
+# Trtl - Simple Ruby Turtle Graphics
 
 ![example session](http://no.gd/p/trtl-20120708-034138.jpg)
 
@@ -9,9 +9,7 @@
 
 Trtl is a simple turtle system inspired by Python's turtle.py. It provides
 simple turtle drawing capabilities in Ruby, even if you're just at an IRb 
-prompt.
-
-It uses Tk which is part of MRI 1.9's standard library so in theory it should
+prompt. It leans on Tk which is part of MRI 1.9's standard library so in theory it should
 work 'out of the box' with most MRI 1.9 installs.
 
 ## Usage
@@ -61,4 +59,4 @@ try any of them, try `example4.rb` - it renders an awesome looking tree.
 
 Copyright (c) 2012 Peter Cooper (other than minor parts of some samples.)
 
-MIT licensed. See LICENSE.md.
+MIT licensed. See LICENSE.md
