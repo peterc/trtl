@@ -47,6 +47,7 @@ are drawn after every action (as necessary for IRb use).
 
 Only a small number of commands are currently implemented, but they're enough for the major actions:
 
+* `title(title_name)` 
 * `forward(distance)` - aliased as `fd`
 * `back(distance)` - aliased as `bk` and `backward`
 * `left(angle)` - aliased as `lt`
