@@ -32,6 +32,10 @@ class Trtl
     @canvas.pack(:fill => 'both', :expand => 1)
     @canvas
   end
+  
+  def title(title)
+    TkRoot.new(:title => title)
+  end
 
   def pen_up
     @drawing = false
