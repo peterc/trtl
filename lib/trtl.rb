@@ -1,7 +1,7 @@
 require 'tk'
 
 class Trtl
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
   CANVAS_WIDTH = 800
   CANVAS_HEIGHT = 600
