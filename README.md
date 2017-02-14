@@ -7,10 +7,7 @@
 
 ## Description
 
-Trtl is a simple turtle system inspired by Python's turtle.py. It provides
-simple turtle drawing capabilities in Ruby, even if you're just at an IRb 
-prompt. It leans on Tk which is part of MRI 1.9's standard library so in theory it should
-work 'out of the box' with most MRI 1.9 installs.
+Trtl is a simple 'turtle' system inspired by Python's turtle.py. It provides simple turtle drawing capabilities in Ruby, even if you're just at an IRB prompt. It leans on Tk (which used to be in Ruby's standard library but is now an external gem).
 
 ## Usage
 
@@ -47,7 +44,7 @@ are drawn after every action (as necessary for IRb use).
 
 Only a small number of commands are currently implemented, but they're enough for the major actions:
 
-* `title(title_name)` 
+* `title(title_name)`
 * `forward(distance)` - aliased as `fd`
 * `back(distance)` - aliased as `bk` and `backward`
 * `left(angle)` - aliased as `lt`
@@ -61,8 +58,6 @@ Only a small number of commands are currently implemented, but they're enough fo
 * `dot(size)` - draws a dot, defaults to a sensible size but you can supply if you want
 * `is_drawing?`
 * `width(width_in_pixels)`
-
-More documentation to come later.
 
 ## Examples
 
@@ -78,6 +73,6 @@ try any of them, try `example4.rb` - it renders an awesome looking tree.
 
 ## Copyright and License
 
-Copyright (c) 2012 Peter Cooper (other than minor parts of some samples.)
+Copyright (c) 2012-2017 Peter Cooper (other than minor parts of some samples.)
 
 MIT licensed. See LICENSE.md
