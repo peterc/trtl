@@ -1,8 +1,6 @@
 require 'tk'
 
 class Trtl
-  VERSION = "0.0.2"
-
   CANVAS_WIDTH = 800
   CANVAS_HEIGHT = 600
   HOME_X = CANVAS_WIDTH / 2
@@ -32,7 +30,7 @@ class Trtl
     @canvas.pack(:fill => 'both', :expand => 1)
     @canvas
   end
-  
+
   def title(title)
     TkRoot.new(:title => title)
   end
@@ -40,7 +38,7 @@ class Trtl
   def pen_up
     @drawing = false
   end
-  
+
   def pen_down
     @drawing = true
   end
@@ -56,7 +54,7 @@ class Trtl
   def width(width)
     @width = width
   end
-  
+
   def forward(amount = 20)
     new_x = (@x + dx * amount)
     new_y = (@y + dy * amount)
@@ -68,18 +66,18 @@ class Trtl
     new_y = (@y - dy * amount)
     move(new_x, new_y)
   end
-  
+
   def move(new_x, new_y)
     TkcLine.new(canvas, @x, @y, new_x, new_y, :width => @width, :fill => @color) if @drawing
     @x, @y = new_x, new_y
     draw
   end
-  
+
   def right(offset)
     @heading = (@heading + offset) % 360
     draw
   end
-  
+
   def left(offset)
     @heading = (@heading - offset) % 360
     draw
@@ -148,7 +146,7 @@ class Trtl
   def dx
     Math.cos(@heading * DEG)
   end
-  
+
   def dy
     Math.sin(@heading * DEG)
   end

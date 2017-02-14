@@ -1,10 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "trtl"
 
 Gem::Specification.new do |s|
   s.name        = "trtl"
-  s.version     = Trtl::VERSION
+  s.version     = "0.0.2"
   s.authors     = ["Peter Cooper"]
   s.email       = ["git@peterc.org"]
   s.homepage    = "https://github.com/peterc/trtl"
