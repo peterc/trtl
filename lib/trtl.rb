@@ -26,6 +26,7 @@ class Trtl
     return @canvas if @canvas
 
     root = TkRoot.new(:title => 'trtl', :minsize => [CANVAS_WIDTH, CANVAS_HEIGHT])
+    root.deiconify
     @canvas = TkCanvas.new(root, :bg => 'black', :highlightthickness => 0, :width => CANVAS_WIDTH, :height => CANVAS_HEIGHT)
     @canvas.pack(:fill => 'both', :expand => 1)
     @canvas
