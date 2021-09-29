@@ -1,8 +1,8 @@
-*2020 UPDATE: Due to tk being removed from the Ruby standard library and due to changes on macOS (which I primarily use), this library is no longer as easy to use for beginners as it once was. If you can come up with solutions to resolve this issue, I am all ears. I have tagged this repo hacktoberfest if anyone wishes to take on any changes as part of that too including coming up with a new screenshot of the turtle in action as the one below has broken.*
+*2020 UPDATE: Due to tk being removed from the Ruby standard library and due to changes on macOS (which I primarily use), this library is no longer as easy to use for beginners as it once was. If you can come up with solutions to resolve this issue, I am all ears.*
+
+*2021 UPDATE: I have not had to time to spend updating this project but some kind people in the issue tracker have suggestions on installing Tk in the modern age. See https://github.com/peterc/trtl/issues/5#issuecomment-925525407*
 
 # Trtl - Simple Ruby Turtle Graphics
-
-![example session](http://no.gd/p/trtl-20120708-034138.jpg)
 
 ## Installation
     gem install trtl
