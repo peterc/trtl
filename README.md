@@ -78,3 +78,12 @@ try any of them, try `example4.rb` - it renders an awesome looking tree.
 Copyright (c) 2012-2017 Peter Cooper (other than minor parts of some samples.)
 
 MIT licensed. See LICENSE.md
+
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
