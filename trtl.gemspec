@@ -1,21 +1,17 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-
 Gem::Specification.new do |s|
   s.name        = "trtl"
-  s.version     = "0.0.2"
+  s.version     = "0.1.0"
   s.authors     = ["Peter Cooper"]
   s.email       = ["git@peterc.org"]
   s.homepage    = "https://github.com/peterc/trtl"
-  s.summary     = %q{Ruby turtle graphics (ideal for use from IRb)}
+  s.license     = "MIT"
+  s.summary     = %q{Ruby turtle graphics (ideal for use from IRB)}
   s.description = %q{A Logo / turtle.py style turtle graphics system for Ruby}
 
-  s.rubyforge_project = "trtl"
+  s.required_ruby_version = ">= 2.6"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = `git ls-files -- lib examples README.md LICENSE.md`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency 'tk', '~> 0.1'
+  s.add_runtime_dependency 'libui', '~> 0.2'
 end

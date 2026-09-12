@@ -11,4 +11,4 @@ t = Trtl.new
   t.ensure_drawn
 end
 
-gets
+t.wait

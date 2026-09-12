@@ -1,4 +1,5 @@
-require 'tk'
+require_relative 'trtl/colors'
+require_relative 'trtl/canvas'
 
 class Trtl
   CANVAS_WIDTH = 800
@@ -18,22 +19,17 @@ class Trtl
     @canvas = options[:canvas] || self.class.canvas
     @width = options[:width] || 1
     @drawing = true
+    @canvas.add_turtle(self)
     home
     draw
   end
 
   def self.canvas
-    return @canvas if @canvas
-
-    root = TkRoot.new(:title => 'trtl', :minsize => [CANVAS_WIDTH, CANVAS_HEIGHT])
-    root.deiconify
-    @canvas = TkCanvas.new(root, :bg => 'black', :highlightthickness => 0, :width => CANVAS_WIDTH, :height => CANVAS_HEIGHT)
-    @canvas.pack(:fill => 'both', :expand => 1)
-    @canvas
+    @canvas ||= Canvas.new(CANVAS_WIDTH, CANVAS_HEIGHT)
   end
 
   def title(title)
-    TkRoot.new(:title => title)
+    canvas.title = title
   end
 
   def pen_up
@@ -48,7 +44,9 @@ class Trtl
     @drawing
   end
 
-  def color(color)
+  # With no argument, returns the current color
+  def color(color = nil)
+    return @color if color.nil?
     @color = color.to_s
   end
 
@@ -69,7 +67,7 @@ class Trtl
   end
 
   def move(new_x, new_y)
-    TkcLine.new(canvas, @x, @y, new_x, new_y, :width => @width, :fill => @color) if @drawing
+    canvas.line(@x, @y, new_x, new_y, @width, @color) if @drawing
     @x, @y = new_x, new_y
     draw
   end
@@ -86,7 +84,7 @@ class Trtl
 
   def dot(size = nil)
     size ||= [@width + 4, @width * 2].max
-    TkcOval.new(canvas, @x - size / 2, @y - size / 2, @x + size / 2, @y + size / 2, :fill => @color, :outline => @color)
+    canvas.dot(@x, @y, size, @color)
   end
 
   # TODO / TOFIX: This is horribly wrong with the fewer steps due to circumference varying ;-)
@@ -109,16 +107,18 @@ class Trtl
     draw
   end
 
+  # Shows the window and keeps it responsive for +time+ milliseconds
   def sleep(time = 100000)
-    Tk.sleep(time)
+    canvas.update(time)
   end
 
   def ensure_drawn
     sleep 30
   end
 
+  # Keeps the window open until it's closed or Enter is pressed
   def wait
-    ensure_drawn and gets
+    canvas.wait
   end
 
   alias :run :instance_eval
@@ -153,10 +153,8 @@ class Trtl
   end
 
   def draw
-    canvas.delete(@turtle_line) if @turtle_line
-    @turtle_line = TkcLine.new(canvas, @x, @y, @x + dx * 5 , @y + dy * 5, :arrow => 'last', :width => 10, :fill => @color)
-    # Can probably just use ensure_drawn actually..
-    TkTimer.new(60, 1) { Tk.update }.start.wait if @interactive
+    canvas.changed
+    canvas.update(60) if @interactive
     true
   end
 end
@@ -171,4 +169,7 @@ module InteractiveTurtle
   end
 end
 
-include InteractiveTurtle if %w{irb pry}.include?($0)
+if %w{irb pry}.include?(File.basename($0))
+  include InteractiveTurtle
+  Trtl::Canvas.keep_responsive!
+end
